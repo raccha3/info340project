@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biome Explorer</title>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Top header -->
+  <header class="top-bar">
+    <h1>🌍 BIOME EXPLORER</h1>
+  </header>
+
+  <!-- Main page content -->
+  <main class="page">
+
+    <!-- Search bar -->
+    <section class="search-section">
+      <input
+        type="text"
+        placeholder="Search biomes by name..."
+        class="search-bar"
+      />
+    </section>
+
+    <!-- Filters area -->
+    <section class="filters-box">
+
+      <h2>FILTERS</h2>
+
+      <div class="filters-grid">
+
+        <!-- Dimension -->
+        <div class="filter-group">
+          <h3>DIMENSION</h3>
+          <label><input type="checkbox" checked /> All</label>
+          <label><input type="checkbox" /> Overworld</label>
+          <label><input type="checkbox" /> Nether</label>
+          <label><input type="checkbox" /> End</label>
+        </div>
+
+        <!-- Climate -->
+        <div class="filter-group">
+          <h3>CLIMATE</h3>
+          <label><input type="checkbox" checked /> All</label>
+          <label><input type="checkbox" /> Cold</label>
+          <label><input type="checkbox" /> Temperate</label>
+          <label><input type="checkbox" /> Hot</label>
+        </div>
+
+        <!-- Difficulty -->
+        <div class="filter-group">
+          <h3>DIFFICULTY</h3>
+          <label><input type="checkbox" checked /> All</label>
+          <label><input type="checkbox" /> Easy</label>
+          <label><input type="checkbox" /> Medium</label>
+          <label><input type="checkbox" /> Hard</label>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Biome cards -->
+    <section class="biome-grid">
+
+      <!-- Card 1 -->
+      <div class="biome-card">
+        <div class="biome-image">🏞️</div>
+        <h3>PLAINS</h3>
+
+        <div class="tags">
+          <span class="tag overworld">OVERWORLD</span>
+          <span class="tag temperate">TEMPERATE</span>
+          <span class="tag easy">EASY</span>
+        </div>
+
+        <button class="favorite">★</button>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="biome-card">
+        <div class="biome-image">🌲</div>
+        <h3>DARK FOREST</h3>
+
+        <div class="tags">
+          <span class="tag overworld">OVERWORLD</span>
+          <span class="tag temperate">TEMPERATE</span>
+          <span class="tag medium">MEDIUM</span>
+        </div>
+
+        <button class="favorite">★</button>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="biome-card">
+        <div class="biome-image">❄️</div>
+        <h3>SNOWY TUNDRA</h3>
+
+        <div class="tags">
+          <span class="tag overworld">OVERWORLD</span>
+          <span class="tag cold">COLD</span>
+          <span class="tag hard">HARD</span>
+        </div>
+
+        <button class="favorite">★</button>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
