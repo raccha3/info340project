@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minecraft BiomeDex — Mobs Explorer</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">⬛</div>
+      <div>
+        <h1 class="brand-title">Minecraft BiomeDex</h1>
+        <p class="brand-subtitle">Biome Explorer & Survival Guide</p>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Biome Explorer</a>
+      <a class="active" href="mobs.html" aria-current="page">Mobs Explorer</a>
+      <a href="favorites.html">Achievements & Favorites</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    <section class="panel">
+      <h2>Mobs Explorer</h2>
+      <p class="muted">Search for a mob and see where it spawns. (Draft 1: static mockup)</p>
+
+      <form class="controls" aria-label="Mob search and filters">
+        <label class="control" for="mob-search">
+          <span class="control-label">Search mobs</span>
+          <input id="mob-search" name="q" type="search" placeholder="Search mobs..." class="search-input" />
+        </label>
+
+        <div class="control-row">
+          <label class="control" for="mob-type">
+            <span class="control-label">Type</span>
+            <select id="mob-type" name="type" class="select">
+              <option value="all">All</option>
+              <option value="hostile">Hostile</option>
+              <option value="neutral">Neutral</option>
+              <option value="passive">Passive</option>
+            </select>
+          </label>
+
+          <label class="control" for="mob-dim">
+            <span class="control-label">Dimension</span>
+            <select id="mob-dim" name="dim" class="select">
+              <option value="all">All</option>
+              <option value="overworld">Overworld</option>
+              <option value="nether">Nether</option>
+              <option value="end">The End</option>
+            </select>
+          </label>
+
+          <button class="btn" type="submit" disabled>Apply (Draft)</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="results">
+      <div class="results-bar">
+        <h3 class="results-title">Showing 6 mobs</h3>
+        <p class="muted small">Tip: click a card to view the Mob Detail template.</p>
+      </div>
+
+      <div class="grid" role="list">
+        <!-- Zombie -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="mob-detail.html">
+              <div class="mob-icon" aria-hidden="true">Z</div>
+              <div class="card-head">
+                <h4 class="card-title">Zombie</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag overworld">Overworld</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Zombie">★</button>
+          </div>
+
+          <div class="card-body">
+            <p class="small"><strong>Spawns in:</strong> Plains, Forest</p>
+            <p class="small"><strong>Related:</strong> Monster Hunter (example)</p>
+            <div class="pill-row">
+              <a class="pill" href="biome-detail.html">Plains</a>
+              <a class="pill" href="biome-detail.html">Forest</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Creeper -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="mob-detail.html">
+              <div class="mob-icon" aria-hidden="true">C</div>
+              <div class="card-head">
+                <h4 class="card-title">Creeper</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag overworld">Overworld</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Creeper">★</button>
+          </div>
+
+          <div class="card-body">
+            <p class="small"><strong>Spawns in:</strong> Plains, Jungle</p>
+            <p class="small"><strong>Related:</strong> Sniper Duel (example)</p>
+            <div class="pill-row">
+              <a class="pill" href="biome-detail.html">Plains</a>
+              <a class="pill" href="biome-detail.html">Jungle</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cow -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="mob-detail.html">
+              <div class="mob-icon" aria-hidden="true">🐄</div>
+              <div class="card-head">
+                <h4 class="card-title">Cow</h4>
+                <div class="tags">
+                  <span class="tag passive">Passive</span>
+                  <span class="tag overworld">Overworld</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Cow">★</button>
+          </div>
+
+          <div class="card-body">
+            <p class="small"><strong>Spawns in:</strong> Plains, Savanna</p>
+            <p class="small"><strong>Related:</strong> Two by Two (example)</p>
+            <div class="pill-row">
+              <a class="pill" href="biome-detail.html">Plains</a>
+              <a class="pill" href="biome-detail.html">Savanna</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Skeleton -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="mob-detail.html">
+              <div class="mob-icon" aria-hidden="true">S</div>
+              <div class="card-head">
+                <h4 class="card-title">Skeleton</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag overworld">Overworld</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Skeleton">★</button>
+          </div>
+
+          <div class="card-body">
+            <p class="small"><strong>Spawns in:</strong> Forest, Plains</p>
+            <p class="small"><strong>Related:</strong> Sharpshooter (example)</p>
+            <div class="pill-row">
+              <a class="pill" href="biome-detail.html">Forest</a>
+              <a class="pill" href="biome-detail.html">Plains</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Enderman -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="mob-detail.html">
+              <div class="mob-icon" aria-hidden="true">E</div>
+              <div class="card-head">
+                <h4 class="card-title">Enderman</h4>
+                <div class="tags">
+                  <span class="tag neutral">Neutral</span>
+                  <span class="tag end">The End</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Enderman">★</button>
+          </div>
+
+          <div class="card-body">
+            <p class="small"><strong>Spawns in:</strong> The End (mostly)</p>
+            <p class="small"><strong>Related:</strong> Free the End (example)</p>
+            <div class="pill-row">
+              <a class="pill" href="biome-detail.html">The End</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pig -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="mob-detail.html">
+              <div class="mob-icon" aria-hidden="true">🐖</div>
+              <div class="card-head">
+                <h4 class="card-title">Pig</h4>
+                <div class="tags">
+                  <span class="tag passive">Passive</span>
+                  <span class="tag overworld">Overworld</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Pig">★</button>
+          </div>
+
+          <div class="card-body">
+            <p class="small"><strong>Spawns in:</strong> Plains, Forest</p>
+            <p class="small"><strong>Related:</strong> When Pigs Fly (example)</p>
+            <div class="pill-row">
+              <a class="pill" href="biome-detail.html">Plains</a>
+              <a class="pill" href="biome-detail.html">Forest</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="small muted">© 2026 Minecraft BiomeDex — INFO 340 Draft 1</p>
+  </footer>
+</body>
+</html>
