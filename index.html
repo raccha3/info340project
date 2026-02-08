@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8" />  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <meta name="author" content="Zainab Khan, Aahil Irfan, Rachel Chalissery, Suma Vegesna" />
-  <meta
-    name="description"
-    content="Minecraft BiomeDex: a Pokédex-style biome guide showing mobs, structures, and achievements by biome."
-  />
-  <link rel="icon" href="img/favicon.png" />
-
-  <title>Minecraft BiomeDex — Biome Explorer</title>
+  <meta name="description" content="Minecraft BiomeDex: a world-based guide showing mobs and goals by biome." />
+  <link rel="icon" href="imgs/logo.png"/>
+  <title>Minecraft BiomeDex</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -20,136 +15,83 @@
 
   <header class="site-header">
     <div class="brand">
-      <div class="brand-mark" aria-hidden="true">⬛</div>
+      <div class="brand-mark">
+        <img src="imgs/logo.png" alt="Minecraft BiomeDex logo" />
+      </div>
       <div>
         <h1 class="brand-title">Minecraft BiomeDex</h1>
-        <p class="brand-subtitle">Biome Explorer & Survival Guide</p>
+        <p class="brand-subtitle">Pick a world to browse biomes and mobs.</p>
       </div>
     </div>
 
     <nav class="site-nav" aria-label="Primary">
-      <a class="active" href="index.html" aria-current="page">Biome Explorer</a>
-      <a href="mobs.html">Mobs Explorer</a>
-      <a href="favorites.html">Achievements & Favorites</a>
+      <a class="active" href="index.html" aria-current="page">Worlds</a>
+      <a href="overworld.html">Overworld</a>
+      <a href="nether.html">Nether</a>
+      <a href="end.html">End</a>
     </nav>
   </header>
 
   <main id="main" class="page">
     <section class="panel">
-      <h2>Biome Explorer</h2>
-      <p class="muted">
-        Search and filter biomes to see what you can do there. (Draft 1: static mockup)
-      </p>
-
-      <form class="controls" aria-label="Biome search and filters">
-        <label class="control" for="biome-search">
-          <span class="control-label">Search biomes</span>
-          <input
-            id="biome-search"
-            name="q"
-            type="search"
-            placeholder="Search biomes by name..."
-            class="search-input"
-          />
-        </label>
-
-        <div class="control-row">
-          <fieldset class="field">
-            <legend>Dimension</legend>
-            <label><input type="checkbox" name="dim" value="all" checked /> All</label>
-            <label><input type="checkbox" name="dim" value="overworld" /> Overworld</label>
-            <label><input type="checkbox" name="dim" value="nether" /> Nether</label>
-            <label><input type="checkbox" name="dim" value="end" /> End</label>
-          </fieldset>
-
-          <fieldset class="field">
-            <legend>Climate</legend>
-            <label><input type="checkbox" name="climate" value="all" checked /> All</label>
-            <label><input type="checkbox" name="climate" value="cold" /> Cold</label>
-            <label><input type="checkbox" name="climate" value="temperate" /> Temperate</label>
-            <label><input type="checkbox" name="climate" value="hot" /> Hot</label>
-          </fieldset>
-
-          <fieldset class="field">
-            <legend>Difficulty</legend>
-            <label><input type="checkbox" name="diff" value="all" checked /> All</label>
-            <label><input type="checkbox" name="diff" value="easy" /> Easy</label>
-            <label><input type="checkbox" name="diff" value="medium" /> Medium</label>
-            <label><input type="checkbox" name="diff" value="hard" /> Hard</label>
-          </fieldset>
-        </div>
-
-        <button class="btn" type="submit" disabled>Apply (Draft)</button>
-      </form>
+      <h2>Choose a World</h2>
+      <p class="muted">Start with a world, then browse biomes and the mobs you can find there.</p>
     </section>
 
-    <section class="results">
+    <section class="panel">
       <div class="results-bar">
-        <h3 class="results-title" aria-live="polite">Showing 3 biomes</h3>
-        <p class="muted small">Tip: click a card to view the Biome Detail template.</p>
+        <h3 class="results-title">Worlds</h3>
       </div>
 
       <div class="grid" role="list">
         <article class="card" role="listitem">
           <div class="card-top">
-            <a class="card-link" href="biome-detail.html">
-              <img class="card-img" src="img/plains.jpg" alt="Minecraft Plains biome" />
+            <a class="card-link" href="overworld.html">
+              <img class="card-img" src="imgs/plains.jpg" alt="Overworld preview: Plains biome" />
               <div class="card-head">
-                <h4 class="card-title">Plains</h4>
+                <h4 class="card-title">Overworld</h4>
                 <div class="tags">
                   <span class="tag overworld">Overworld</span>
-                  <span class="tag temperate">Temperate</span>
-                  <span class="tag easy">Easy</span>
                 </div>
               </div>
             </a>
-            <button class="fav" type="button" aria-label="Favorite Plains">★</button>
           </div>
-
           <div class="card-body">
-            <p class="small"><strong>Highlights:</strong> Villages, passive mobs, early-game resources</p>
+            <p class="small"><strong>Includes:</strong> Plains, Forest, Desert, Swamp, Taiga</p>
           </div>
         </article>
 
         <article class="card" role="listitem">
           <div class="card-top">
-            <a class="card-link" href="biome-detail.html">
-              <img class="card-img" src="img/dark-forest.jpg" alt="Minecraft Dark Forest biome" />
+            <a class="card-link" href="nether.html">
+              <img class="card-img" src="imgs/nether.jpg" alt="Nether preview" />
               <div class="card-head">
-                <h4 class="card-title">Dark Forest</h4>
+                <h4 class="card-title">Nether</h4>
                 <div class="tags">
-                  <span class="tag overworld">Overworld</span>
-                  <span class="tag temperate">Temperate</span>
-                  <span class="tag medium">Medium</span>
+                  <span class="tag nether">Nether</span>
                 </div>
               </div>
             </a>
-            <button class="fav" type="button" aria-label="Favorite Dark Forest">★</button>
           </div>
-
           <div class="card-body">
-            <p class="small"><strong>Highlights:</strong> Woodland Mansions (rare), hostile mobs, canopy cover</p>
+            <p class="small"><strong>Includes:</strong> Wastes, Crimson, Warped, Basalt, Soul Sand</p>
           </div>
         </article>
 
         <article class="card" role="listitem">
           <div class="card-top">
-            <a class="card-link" href="biome-detail.html">
-              <img class="card-img" src="img/snowy-tundra.jpg" alt="Minecraft Snowy Tundra biome" />
+            <a class="card-link" href="end.html">
+              <img class="card-img" src="imgs/end.jpg" alt="End preview" />
               <div class="card-head">
-                <h4 class="card-title">Snowy Tundra</h4>
+                <h4 class="card-title">End</h4>
                 <div class="tags">
-                  <span class="tag overworld">Overworld</span>
-                  <span class="tag cold">Cold</span>
-                  <span class="tag hard">Hard</span>
+                  <span class="tag end">End</span>
                 </div>
               </div>
             </a>
-            <button class="fav" type="button" aria-label="Favorite Snowy Tundra">★</button>
           </div>
-
           <div class="card-body">
-            <p class="small"><strong>Highlights:</strong> Snow survival, stray spawns (night), icy terrain</p>
+            <p class="small"><strong>Includes:</strong> Main Island, End Cities, Outer Islands</p>
           </div>
         </article>
       </div>
@@ -158,7 +100,6 @@
 
   <footer class="site-footer">
     <p class="small muted">© 2026 Minecraft BiomeDex — INFO 340 Draft 1</p>
-    <p class="small muted">Images: add credits in README if not self-made screenshots.</p>
   </footer>
 </body>
 </html>
