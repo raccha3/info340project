@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { overworldMobs } from "../data/overworldMobs";
 
-function OverworldPage() {
-  const [favoriteIds, setFavoriteIds] = useState([]);
+function OverworldPage({ favoriteIds, onToggleFavorite }) {
+  const [searchQuery, setSearchQuery] = useState("");
 
-  function toggleFavorite(mobId) {
-    setFavoriteIds((prev) => {
-      if (prev.includes(mobId)) {
-        return prev.filter((id) => id !== mobId);
-      }
-      return [...prev, mobId];
-    });
-  }
+  const filteredMobs = useMemo(() => {
+    const normalizedQuery = searchQuery.trim().toLowerCase();
+    if (!normalizedQuery) {
+      return overworldMobs;
+    }
+
+    return overworldMobs.filter((mob) => mob.name.toLowerCase().includes(normalizedQuery));
+  }, [searchQuery]);
 
   return (
     <main id="main" className="page">
@@ -20,11 +20,26 @@ function OverworldPage() {
         <p className="muted small">
           Click the star to favorite a mob ⭐
         </p>
+
+        <form className="controls" onSubmit={(event) => event.preventDefault()}>
+          <label className="control" htmlFor="overworld-search">
+            <span className="control-label">Search mobs</span>
+            <input
+              id="overworld-search"
+              name="q"
+              type="search"
+              placeholder="Zombie, Bee, Wolf..."
+              className="search-input"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+            />
+          </label>
+        </form>
       </section>
 
       <section className="panel">
         <div className="grid" role="list">
-          {overworldMobs.map((mob) => {
+          {filteredMobs.map((mob) => {
             const isFav = favoriteIds.includes(mob.id);
 
             return (
@@ -47,10 +62,10 @@ function OverworldPage() {
                   </a>
 
                   <button
-                    className="fav"
+                    className={`fav ${isFav ? "is-favorite" : ""}`}
                     type="button"
                     aria-label={`Favorite ${mob.name}`}
-                    onClick={() => toggleFavorite(mob.id)}
+                    onClick={() => onToggleFavorite(mob.id)}
                   >
                     {isFav ? "★" : "☆"}
                   </button>

@@ -138,6 +138,10 @@ img {
   transition: transform 0.15s ease;
 }
 
+.card-top {
+  position: relative;
+}
+
 .card:hover {
   transform: translateY(-3px);
 }
@@ -244,4 +248,43 @@ img {
 .nether {
   background: #b71c1c;
   color: white;
+}
+
+.end {
+  background: #4a148c;
+  color: white;
+}
+
+.control {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.control-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+.control-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.fav {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: white;
+  cursor: pointer;
+}
+
+.fav.is-favorite {
+  background: #f4c430;
+  border-color: #c89f11;
+  color: #2a2206;
 }
