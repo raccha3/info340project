@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Zainab Khan, Aahil Irfan, Rachel Chalissery, Suma Vegesna" />
+  <meta name="description" content="Minecraft BiomeDex: a world-based guide showing mobs and goals by biome." />
+  <link rel="icon" href="src/assets/logo.png"/>
+  <title>Minecraft BiomeDex</title>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">
+        <img src="assets/logo.png" alt="Minecraft BiomeDex logo" />
+      </div>
+      <div>
+        <h1 class="brand-title">Minecraft BiomeDex</h1>
+        <p class="brand-subtitle">Pick a world to browse biomes and mobs.</p>
+      </div>
+    </div>
+
+      <nav class="site-nav">
+        <a href="/home.html">Worlds</a>
+        <a href="/overworld.html">Overworld</a>
+        <a href="/nether.html" class="active" aria-current="page">Nether</a>
+        <a href="/end.html">End</a>
+      </nav>
+  </header>
+
+  <main id="main" class="page">
+    <section class="panel">
+      <h2>Choose a World</h2>
+      <p class="muted">Start with a world, then browse biomes and the mobs you can find there.</p>
+    </section>
+
+    <section class="panel">
+      <div class="results-bar">
+        <h3 class="results-title">Worlds</h3>
+      </div>
+
+      <div class="grid" role="list">
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="overworld.html">
+              <img class="card-img" src="assets/plains.jpg" alt="Overworld preview: Plains biome" />
+              <div class="card-head">
+                <h4 class="card-title">Overworld</h4>
+                <div class="tags">
+                  <span class="tag overworld">Overworld</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Includes:</strong> Plains, Forest, Desert, Swamp, Taiga</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="nether.html">
+              <img class="card-img" src="assets/nether.jpg" alt="Nether preview" />
+              <div class="card-head">
+                <h4 class="card-title">Nether</h4>
+                <div class="tags">
+                  <span class="tag nether">Nether</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Includes:</strong> Wastes, Crimson, Warped, Basalt, Soul Sand</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="end.html">
+              <img class="card-img" src="assets/end.jpg" alt="End preview" />
+              <div class="card-head">
+                <h4 class="card-title">End</h4>
+                <div class="tags">
+                  <span class="tag end">End</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Includes:</strong> Main Island, End Cities, Outer Islands</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="small muted">© 2026 Minecraft BiomeDex — INFO 340 Draft 1</p>
+  </footer>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

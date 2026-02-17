@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Zainab Khan, Aahil Irfan, Rachel Chalissery, Suma Vegesna" />
+  <meta name="description" content="Minecraft BiomeDex Overworld: mob cards tagged by hostility and biome." />
+  <title>Minecraft BiomeDex — Overworld Mobs</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/logo.png" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">
+        <img src="assets/logo.png" alt="Minecraft BiomeDex logo" />
+      </div>
+      <div>
+        <h1 class="brand-title">Minecraft BiomeDex</h1>
+        <p class="brand-subtitle">Overworld — Mob Cards (tagged by biome + hostility)</p>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="home.html">Worlds</a>
+      <a class="active" href="overworld.html" aria-current="page">Overworld</a>
+      <a href="nether.html">Nether</a>
+      <a href="end.html">End</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    <section class="panel">
+      <h2>Overworld Mobs</h2>
+      <p class="muted small">
+        Simple catalog: big mob cards + tags. In React later, you can filter by hostility or biome.
+      </p>
+
+      <form class="controls" aria-label="Mob search and filters (static)">
+        <label class="control" for="mob-search">
+          <span class="control-label">Search mobs</span>
+          <input id="mob-search" name="q" type="search" placeholder="(Static) Zombie, Bee, Wolf..." class="search-input" />
+        </label>
+
+        <div class="control-row">
+          <label class="control" for="mob-type">
+            <span class="control-label">Hostility</span>
+            <select id="mob-type" name="type" class="select">
+              <option value="all">All</option>
+              <option value="hostile">Hostile</option>
+              <option value="neutral">Neutral</option>
+              <option value="passive">Passive</option>
+            </select>
+          </label>
+
+          <button class="btn" type="submit">Apply</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="results-bar">
+        <h3 class="results-title">Mob List</h3>
+        <p class="muted small">Click a card later to open details / highlight biome tags (React).</p>
+      </div>
+
+      <div class="grid" role="list">
+        <!-- 1) ZOMBIE -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/zombie.png" alt="Zombie mob" />
+              <div class="card-head">
+                <h4 class="card-title">Zombie</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag">Plains</span>
+                  <span class="tag">Forest</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Zombie" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Survive a night + defeat a hostile mob.</p>
+          </div>
+        </article>
+
+        <!-- 2) SKELETON -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/skeleton.jpg" alt="Skeleton mob" />
+              <div class="card-head">
+                <h4 class="card-title">Skeleton</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag">Plains</span>
+                  <span class="tag">Taiga</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Skeleton" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Collect bones + arrows for tools and taming.</p>
+          </div>
+        </article>
+
+        <!-- 3) CREEPER -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/creeper.png" alt="Creeper mob" />
+              <div class="card-head">
+                <h4 class="card-title">Creeper</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag">Forest</span>
+                  <span class="tag">Plains</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Creeper" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Defeat safely (shield!) to work toward gunpowder.</p>
+          </div>
+        </article>
+
+        <!-- 4) SPIDER -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/spider.png" alt="Spider mob" />
+              <div class="card-head">
+                <h4 class="card-title">Spider</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag">Forest</span>
+                  <span class="tag">Swamp</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Spider" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Collect string for fishing rod / bow.</p>
+          </div>
+        </article>
+
+        <!-- 5) SLIME -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/slime.png" alt="Slime mob" />
+              <div class="card-head">
+                <h4 class="card-title">Slime</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag">Swamp</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Slime" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Get slimeballs for leads or sticky pistons.</p>
+          </div>
+        </article>
+
+        <!-- 6) WITCH -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/witch.png" alt="Witch mob" />
+              <div class="card-head">
+                <h4 class="card-title">Witch</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag">Swamp</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Witch" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Collect potion-related drops (later brewing).</p>
+          </div>
+        </article>
+
+        <!-- 7) HUSK -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/husk.png" alt="Husk mob" />
+              <div class="card-head">
+                <h4 class="card-title">Husk</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag">Desert</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Husk" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Defeat and avoid hunger effect.</p>
+          </div>
+        </article>
+
+        <!-- 8) RABBIT -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/rabbit.png" alt="Rabbit mob" />
+              <div class="card-head">
+                <h4 class="card-title">Rabbit</h4>
+                <div class="tags">
+                  <span class="tag passive">Passive</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag plains">Plains</span>
+                  <span class="tag">Desert</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Rabbit" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Breed using carrots for easy food.</p>
+          </div>
+        </article>
+
+        <!-- 9) BEE (Plains AND Forest) -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/bee.png" alt="Bee mob" />
+              <div class="card-head">
+                <h4 class="card-title">Bee</h4>
+                <div class="tags">
+                  <span class="tag neutral">Neutral</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag">Plains</span>
+                  <span class="tag">Forest</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Bee" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Harvest honey safely with a campfire.</p>
+          </div>
+        </article>
+
+        <!-- 10) WOLF -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/wolf.png" alt="Wolf mob" />
+              <div class="card-head">
+                <h4 class="card-title">Wolf</h4>
+                <div class="tags">
+                  <span class="tag neutral">Neutral</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag">Forest</span>
+                  <span class="tag">Taiga</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Wolf" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Tame with bones for a companion.</p>
+          </div>
+        </article>
+
+        <!-- 11) HORSE -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/horse.png" alt="Horse mob" />
+              <div class="card-head">
+                <h4 class="card-title">Horse</h4>
+                <div class="tags">
+                  <span class="tag passive">Passive</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag">Plains</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Horse" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Tame and ride to explore faster.</p>
+          </div>
+        </article>
+
+        <!-- 12) FOX -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/fox.png" alt="Fox mob" />
+              <div class="card-head">
+                <h4 class="card-title">Fox</h4>
+                <div class="tags">
+                  <span class="tag passive">Passive</span>
+                  <span class="tag overworld">Overworld</span>
+                  <span class="tag">Taiga</span>
+                </div>
+              </div>
+            </a>
+            <button class="fav" type="button" aria-label="Favorite Fox" disabled>★</button>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Find sweet berries and spot a fox at night.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="small muted">© 2026 Minecraft BiomeDex — INFO 340 Draft 1</p>
+  </footer>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Zainab Khan, Aahil Irfan, Rachel Chalissery, Suma Vegesna" />
+  <meta name="description" content="Minecraft BiomeDex Nether: mob cards tagged by biome and hostility." />
+  <title>Minecraft BiomeDex — Nether Mobs</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="src/assets/logo.png" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">
+        <img src="assets/logo.png" alt="Minecraft BiomeDex logo" />
+      </div>
+      <div>
+        <h1 class="brand-title">Minecraft BiomeDex</h1>
+        <p class="brand-subtitle">Nether — Mob Cards (tagged by biome + hostility)</p>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="home.html">Worlds</a>
+      <a href="overworld.html">Overworld</a>
+      <a class="active" href="nether.html" aria-current="page">Nether</a>
+      <a href="end.html">End</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    <section class="panel">
+      <h2>Nether Mobs</h2>
+      <p class="muted small">
+        Hostile-heavy dimension. Tagged by biome and mob type.
+      </p>
+
+      <form class="controls" aria-label="Mob search and filters (static)">
+        <label class="control" for="mob-search">
+          <span class="control-label">Search mobs</span>
+          <input id="mob-search" name="q" type="search" placeholder="(Static) Blaze, Ghast..." class="search-input" />
+        </label>
+
+        <div class="control-row">
+          <label class="control" for="mob-type">
+            <span class="control-label">Hostility</span>
+            <select id="mob-type" name="type" class="select">
+              <option value="all">All</option>
+              <option value="hostile">Hostile</option>
+              <option value="neutral">Neutral</option>
+              <option value="passive">Passive</option>
+            </select>
+          </label>
+
+          <button class="btn" type="submit">Apply</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="results-bar">
+        <h3 class="results-title">Mob List</h3>
+        <p class="muted small">React later: filter by hostility or biome.</p>
+      </div>
+
+      <div class="grid" role="list">
+
+        <!-- 1) BLAZE -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/blaze.png" alt="Blaze mob" />
+              <div class="card-head">
+                <h4 class="card-title">Blaze</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag nether">Nether</span>
+                  <span class="tag">Nether Fortress</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Collect blaze rods for brewing + End progression.</p>
+          </div>
+        </article>
+
+        <!-- 2) GHAST -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/ghast.png" alt="Ghast mob" />
+              <div class="card-head">
+                <h4 class="card-title">Ghast</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag nether">Nether</span>
+                  <span class="tag">Nether Wastes</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Deflect a fireball and collect ghast tears.</p>
+          </div>
+        </article>
+
+        <!-- 3) WITHER SKELETON -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/wither-skeleton.png" alt="Wither Skeleton mob" />
+              <div class="card-head">
+                <h4 class="card-title">Wither Skeleton</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag nether">Nether</span>
+                  <span class="tag">Nether Fortress</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Collect skulls to summon the Wither.</p>
+          </div>
+        </article>
+
+        <!-- 4) PIGLIN -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/piglin.png" alt="Piglin mob" />
+              <div class="card-head">
+                <h4 class="card-title">Piglin</h4>
+                <div class="tags">
+                  <span class="tag neutral">Neutral</span>
+                  <span class="tag nether">Nether</span>
+                  <span class="tag">Crimson Forest</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Trade gold ingots for rare items.</p>
+          </div>
+        </article>
+
+        <!-- 5) HOGLIN -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/hoglin.png" alt="Hoglin mob" />
+              <div class="card-head">
+                <h4 class="card-title">Hoglin</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag nether">Nether</span>
+                  <span class="tag">Crimson Forest</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Farm for food in the Nether.</p>
+          </div>
+        </article>
+
+        <!-- 6) STRIDER -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/strider.png" alt="Strider mob" />
+              <div class="card-head">
+                <h4 class="card-title">Strider</h4>
+                <div class="tags">
+                  <span class="tag passive">Passive</span>
+                  <span class="tag nether">Nether</span>
+                  <span class="tag">Lava Lakes</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Ride across lava safely.</p>
+          </div>
+        </article>
+
+        <!-- 7) MAGMA CUBE -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/magma-cube.png" alt="Magma Cube mob" />
+              <div class="card-head">
+                <h4 class="card-title">Magma Cube</h4>
+                <div class="tags">
+                  <span class="tag hostile">Hostile</span>
+                  <span class="tag nether">Nether</span>
+                  <span class="tag">Basalt Deltas</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Collect magma cream for potions.</p>
+          </div>
+        </article>
+
+        <!-- 8) ZOMBIFIED PIGLIN -->
+        <article class="card" role="listitem">
+          <div class="card-top">
+            <a class="card-link" href="#">
+              <img class="mob-photo" src="assets/mobs/zombified-piglin.png" alt="Zombified Piglin mob" />
+              <div class="card-head">
+                <h4 class="card-title">Zombified Piglin</h4>
+                <div class="tags">
+                  <span class="tag neutral">Neutral</span>
+                  <span class="tag nether">Nether</span>
+                  <span class="tag">Nether Wastes</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Goal:</strong> Avoid angering large groups.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"> 
+    <p class="small muted">© 2026 Minecraft BiomeDex — INFO 340 Draft 1</p>
+  </footer>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
