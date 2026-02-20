@@ -281,6 +281,9 @@ img {
   border: 2px solid var(--border);
   background: white;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fav.is-favorite {
