@@ -6,7 +6,7 @@ export const netherMobs = [
 		world: "Nether",
 		biomes: ["Nether Fortress"],
 		goal: "Collect blaze rods for brewing + End progression.",
-		image: "/assets/nether.png",
+		image: "/assets/mobs/blaze.png",
 	},
 	{
 		id: 102,
@@ -15,7 +15,7 @@ export const netherMobs = [
 		world: "Nether",
 		biomes: ["Nether Wastes"],
 		goal: "Deflect a fireball and collect ghast tears.",
-		image: "/assets/nether.png",
+		image: "/assets/mobs/ghast.png",
 	},
 	{
 		id: 103,
@@ -24,7 +24,7 @@ export const netherMobs = [
 		world: "Nether",
 		biomes: ["Nether Fortress"],
 		goal: "Collect skulls to summon the Wither.",
-		image: "/assets/nether.png",
+		image: "/assets/mobs/wither-skeleton.png",
 	},
 	{
 		id: 104,
@@ -33,7 +33,7 @@ export const netherMobs = [
 		world: "Nether",
 		biomes: ["Crimson Forest"],
 		goal: "Trade gold ingots for rare items.",
-		image: "/assets/nether.png",
+		image: "/assets/mobs/piglin.png",
 	},
 	{
 		id: 105,
@@ -42,7 +42,7 @@ export const netherMobs = [
 		world: "Nether",
 		biomes: ["Crimson Forest"],
 		goal: "Farm for food in the Nether.",
-		image: "/assets/nether.png",
+		image: "/assets/mobs/hoglin.png",
 	},
 	{
 		id: 106,
@@ -51,7 +51,7 @@ export const netherMobs = [
 		world: "Nether",
 		biomes: ["Lava Lakes"],
 		goal: "Ride across lava safely.",
-		image: "/assets/nether.png",
+		image: "/assets/mobs/strider.gif",
 	},
 	{
 		id: 107,
@@ -60,7 +60,7 @@ export const netherMobs = [
 		world: "Nether",
 		biomes: ["Basalt Deltas"],
 		goal: "Collect magma cream for potions.",
-		image: "/assets/nether.png",
+		image: "/assets/mobs/magma-cube.png",
 	},
 	{
 		id: 108,
@@ -69,6 +69,6 @@ export const netherMobs = [
 		world: "Nether",
 		biomes: ["Nether Wastes"],
 		goal: "Avoid angering large groups.",
-		image: "/assets/nether.png",
+		image: "/assets/mobs/zombified-piglin.png",
 	},
 ];
