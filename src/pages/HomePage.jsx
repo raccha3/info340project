@@ -1,4 +1,31 @@
-import { Link } from "react-router-dom";
+import WorldCard from "../components/WorldCard";
+
+const worlds = [
+  {
+    id: "overworld",
+    title: "Overworld",
+    description: "Plains, Forest, Desert",
+    image: "/assets/plains.jpg",
+    imageAlt: "Overworld preview",
+    to: "/overworld",
+  },
+  {
+    id: "nether",
+    title: "Nether",
+    description: "Fortress, Wastes, Crimson Forest",
+    image: "/assets/nether.jpg",
+    imageAlt: "Nether preview",
+    to: "/nether",
+  },
+  {
+    id: "end",
+    title: "End",
+    description: "Main Island, End City",
+    image: "/assets/end.jpg",
+    imageAlt: "End preview",
+    to: "/end",
+  },
+];
 
 function HomePage() {
   return (
@@ -10,47 +37,16 @@ function HomePage() {
 
       <section className="panel">
         <div className="grid" role="list">
-          <Link to="/overworld" className="card-link" role="listitem">
-            <article className="card">
-              <div className="card-top">
-                <img className="mob-photo" src="/assets/plains.jpg" alt="Overworld preview" />
-                <div className="card-head">
-                  <h4 className="card-title">Overworld</h4>
-                </div>
-              </div>
-              <div className="card-body">
-                <p className="small"><strong>Includes:</strong> Plains, Forest, Desert</p>
-              </div>
-            </article>
-          </Link>
-
-          <Link to="/nether" className="card-link" role="listitem">
-            <article className="card">
-              <div className="card-top">
-                <img className="mob-photo" src="/assets/nether.jpg" alt="Nether preview" />
-                <div className="card-head">
-                  <h4 className="card-title">Nether</h4>
-                </div>
-              </div>
-              <div className="card-body">
-                <p className="small"><strong>Includes:</strong> Fortress, Wastes, Crimson Forest</p>
-              </div>
-            </article>
-          </Link>
-
-          <Link to="/end" className="card-link" role="listitem">
-            <article className="card">
-              <div className="card-top">
-                <img className="mob-photo" src="/assets/end.jpg" alt="End preview" />
-                <div className="card-head">
-                  <h4 className="card-title">End</h4>
-                </div>
-              </div>
-              <div className="card-body">
-                <p className="small"><strong>Includes:</strong> Main Island, End City</p>
-              </div>
-            </article>
-          </Link>
+          {worlds.map((world) => (
+            <WorldCard
+              key={world.id}
+              title={world.title}
+              description={world.description}
+              image={world.image}
+              imageAlt={world.imageAlt}
+              to={world.to}
+            />
+          ))}
         </div>
       </section>
     </main>

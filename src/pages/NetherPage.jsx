@@ -1,9 +1,14 @@
 import { useMemo, useState } from "react";
 import { netherMobs } from "../data/nether-mobs";
+import MobCard from "../components/MobCard";
+import FilterControls from "../components/FilterControls";
+
+const HOSTILITY_ORDER = { hostile: 0, neutral: 1, passive: 2 };
 
 function NetherPage({ favoriteIds, onToggleFavorite }) {
   const [query, setQuery] = useState("");
   const [hostility, setHostility] = useState("all");
+  const [sortBy, setSortBy] = useState("name-asc");
 
   const filteredMobs = useMemo(() => {
     return netherMobs.filter((mob) => {
@@ -13,44 +18,45 @@ function NetherPage({ favoriteIds, onToggleFavorite }) {
     });
   }, [query, hostility]);
 
+  const sortedMobs = useMemo(() => {
+    const list = [...filteredMobs];
+    if (sortBy === "name-asc") list.sort((a, b) => a.name.localeCompare(b.name));
+    else if (sortBy === "name-desc") list.sort((a, b) => b.name.localeCompare(a.name));
+    else if (sortBy === "hostility") list.sort((a, b) => (HOSTILITY_ORDER[a.hostility] ?? 3) - (HOSTILITY_ORDER[b.hostility] ?? 3));
+    return list;
+  }, [filteredMobs, sortBy]);
+
   return (
     <main id="main" className="page">
       <section className="panel">
         <h2>Nether Mobs</h2>
         <p className="muted small">Hostile-heavy dimension. Tagged by biome and mob type.</p>
 
-        <form className="controls" aria-label="Mob search and filters" onSubmit={(event) => event.preventDefault()}>
-          <label className="control" htmlFor="nether-search">
-            <span className="control-label">Search mobs</span>
-            <input
-              id="nether-search"
-              name="q"
-              type="search"
-              placeholder="Blaze, Ghast..."
-              className="search-input"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-            />
-          </label>
+        <FilterControls
+          search={query}
+          setSearch={setQuery}
+          hostility={hostility}
+          setHostility={setHostility}
+          searchId="nether-search"
+          selectId="nether-type"
+          searchPlaceholder="Blaze, Ghast..."
+        />
 
-          <div className="control-row">
-            <label className="control" htmlFor="nether-type">
-              <span className="control-label">Hostility</span>
-              <select
-                id="nether-type"
-                name="type"
-                className="select"
-                value={hostility}
-                onChange={(event) => setHostility(event.target.value)}
-              >
-                <option value="all">All</option>
-                <option value="hostile">Hostile</option>
-                <option value="neutral">Neutral</option>
-                <option value="passive">Passive</option>
-              </select>
-            </label>
-          </div>
-        </form>
+        <div className="control-row" style={{ marginTop: "1rem" }}>
+          <label className="control" htmlFor="nether-sort">
+            <span className="control-label">Sort by</span>
+            <select
+              id="nether-sort"
+              className="select"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+            >
+              <option value="name-asc">Name (A–Z)</option>
+              <option value="name-desc">Name (Z–A)</option>
+              <option value="hostility">Hostility</option>
+            </select>
+          </label>
+        </div>
       </section>
 
       <section className="panel">
@@ -58,48 +64,18 @@ function NetherPage({ favoriteIds, onToggleFavorite }) {
           <h3 className="results-title">Mob List</h3>
         </div>
 
-        {filteredMobs.length === 0 ? (
+        {sortedMobs.length === 0 ? (
           <p className="muted small">No Nether mobs match that filter.</p>
         ) : (
           <div className="grid" role="list">
-            {filteredMobs.map((mob) => {
-              const isFav = favoriteIds.includes(mob.id);
-
-              return (
-                <article className="card" role="listitem" key={mob.id}>
-                  <div className="card-top">
-                    <a className="card-link" href="#" onClick={(event) => event.preventDefault()}>
-                      <img className="mob-photo" src={mob.image} alt={`${mob.name} mob`} />
-                      <div className="card-head">
-                        <h4 className="card-title">{mob.name}</h4>
-                        <div className="tags">
-                          <span className={`tag ${mob.hostility}`}>
-                            {mob.hostility[0].toUpperCase() + mob.hostility.slice(1)}
-                          </span>
-                          <span className="tag nether">Nether</span>
-                          {mob.biomes.map((biome) => (
-                            <span className="tag" key={biome}>{biome}</span>
-                          ))}
-                        </div>
-                      </div>
-                    </a>
-
-                    <button
-                      className={`fav ${isFav ? "is-favorite" : ""}`}
-                      type="button"
-                      aria-label={`Favorite ${mob.name}`}
-                      onClick={() => onToggleFavorite(mob.id)}
-                    >
-                      {isFav ? "★" : "☆"}
-                    </button>
-                  </div>
-
-                  <div className="card-body">
-                    <p className="small"><strong>Goal:</strong> {mob.goal}</p>
-                  </div>
-                </article>
-              );
-            })}
+            {sortedMobs.map((mob) => (
+              <MobCard
+                key={mob.id}
+                mob={mob}
+                isFavorite={favoriteIds.includes(mob.id)}
+                onToggleFavorite={onToggleFavorite}
+              />
+            ))}
           </div>
         )}
       </section>

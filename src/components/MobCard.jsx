@@ -9,7 +9,7 @@ function MobCard({ mob, isFavorite, onToggleFavorite }) {
 
             <div className="tags">
               <span className={`tag ${mob.hostility}`}>{mob.hostility[0].toUpperCase() + mob.hostility.slice(1)}</span>
-              <span className="tag overworld">Overworld</span>
+              <span className={`tag ${mob.world.toLowerCase()}`}>{mob.world}</span>
               {mob.biomes.map((b) => (
                 <span className="tag" key={b}>{b}</span>
               ))}

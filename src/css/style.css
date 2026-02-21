@@ -52,15 +52,23 @@ img {
 .site-header {
   background: linear-gradient(#5aa85a, #3f7f3f);
   color: white;
-  padding: 1.2rem;
+  padding: 1.2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  min-height: 5rem;
+}
+
+.site-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.2rem;
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 .brand-mark {
@@ -84,8 +92,7 @@ img {
 
 
 .site-nav {
-  max-width: 1100px;
-  margin: 0.8rem auto 0;
+  margin-top: 0.8rem;
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
@@ -136,6 +143,9 @@ img {
   box-shadow: var(--shadow);
   border: 2px solid var(--border);
   transition: transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
 }
 
 .card-top {
@@ -171,6 +181,8 @@ img {
 
 .card-body {
   padding: 0 1rem 1rem;
+  flex: 1;
+  min-height: 3rem;
 }
 
 .tags {
@@ -269,6 +281,17 @@ img {
 .control-label {
   font-size: 0.82rem;
   font-weight: 600;
+}
+
+.results-bar {
+  margin-bottom: 1rem;
+}
+
+.results-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
 }
 
 .fav {

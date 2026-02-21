@@ -1,6 +1,7 @@
 import { overworldMobs } from "../data/overworldMobs";
 import { netherMobs } from "../data/nether-mobs";
 import { endMobs } from "../data/end-mobs";
+import MobCard from "../components/MobCard";
 
 function FavoritesPage({ favoriteIds, onToggleFavorite }) {
 	const allMobs = [...overworldMobs, ...netherMobs, ...endMobs];
@@ -21,38 +22,12 @@ function FavoritesPage({ favoriteIds, onToggleFavorite }) {
 				) : (
 					<div className="grid" role="list">
 						{favoriteMobs.map((mob) => (
-							<article className="card" role="listitem" key={mob.id}>
-								<div className="card-top">
-									<a className="card-link" href="#" onClick={(event) => event.preventDefault()}>
-										<img className="mob-photo" src={mob.image} alt={`${mob.name} mob`} />
-										<div className="card-head">
-											<h4 className="card-title">{mob.name}</h4>
-											<div className="tags">
-												<span className={`tag ${mob.hostility}`}>
-													{mob.hostility[0].toUpperCase() + mob.hostility.slice(1)}
-												</span>
-												<span className={`tag ${mob.world.toLowerCase()}`}>{mob.world}</span>
-												{mob.biomes.map((biome) => (
-													<span className="tag" key={biome}>{biome}</span>
-												))}
-											</div>
-										</div>
-									</a>
-
-									<button
-										className="fav is-favorite"
-										type="button"
-										aria-label={`Favorite ${mob.name}`}
-										onClick={() => onToggleFavorite(mob.id)}
-									>
-										★
-									</button>
-								</div>
-
-								<div className="card-body">
-									<p className="small"><strong>Goal:</strong> {mob.goal}</p>
-								</div>
-							</article>
+							<MobCard
+								key={mob.id}
+								mob={mob}
+								isFavorite={favoriteIds.includes(mob.id)}
+								onToggleFavorite={onToggleFavorite}
+							/>
 						))}
 					</div>
 				)}

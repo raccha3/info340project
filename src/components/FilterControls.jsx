@@ -1,13 +1,21 @@
-function OverworldControls({ search, setSearch, hostility, setHostility }) {
+function FilterControls({
+  search,
+  setSearch,
+  hostility,
+  setHostility,
+  searchId,
+  selectId,
+  searchPlaceholder,
+}) {
   return (
     <form className="controls" aria-label="Mob search and filters" onSubmit={(e) => e.preventDefault()}>
-      <label className="control" htmlFor="mob-search">
+      <label className="control" htmlFor={searchId}>
         <span className="control-label">Search mobs</span>
         <input
-          id="mob-search"
+          id={searchId}
           name="q"
           type="search"
-          placeholder="Zombie, Bee, Wolf..."
+          placeholder={searchPlaceholder}
           className="search-input"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
@@ -15,10 +23,10 @@ function OverworldControls({ search, setSearch, hostility, setHostility }) {
       </label>
 
       <div className="control-row">
-        <label className="control" htmlFor="mob-type">
+        <label className="control" htmlFor={selectId}>
           <span className="control-label">Hostility</span>
           <select
-            id="mob-type"
+            id={selectId}
             name="type"
             className="select"
             value={hostility}
@@ -30,11 +38,9 @@ function OverworldControls({ search, setSearch, hostility, setHostility }) {
             <option value="passive">Passive</option>
           </select>
         </label>
-
-        <button className="btn" type="submit">Apply</button>
       </div>
     </form>
   );
 }
 
-export default OverworldControls;
+export default FilterControls;

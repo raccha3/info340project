@@ -1,9 +1,14 @@
 import { useMemo, useState } from "react";
 import { overworldMobs } from "../data/overworldMobs";
+import MobCard from "../components/MobCard";
+import FilterControls from "../components/FilterControls";
+
+const HOSTILITY_ORDER = { hostile: 0, neutral: 1, passive: 2 };
 
 function OverworldPage({ favoriteIds, onToggleFavorite }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [hostility, setHostility] = useState("all");
+  const [sortBy, setSortBy] = useState("name-asc");
 
   const filteredMobs = useMemo(() => {
     const normalizedQuery = searchQuery.trim().toLowerCase();
@@ -14,6 +19,14 @@ function OverworldPage({ favoriteIds, onToggleFavorite }) {
     });
   }, [searchQuery, hostility]);
 
+  const sortedMobs = useMemo(() => {
+    const list = [...filteredMobs];
+    if (sortBy === "name-asc") list.sort((a, b) => a.name.localeCompare(b.name));
+    else if (sortBy === "name-desc") list.sort((a, b) => b.name.localeCompare(a.name));
+    else if (sortBy === "hostility") list.sort((a, b) => (HOSTILITY_ORDER[a.hostility] ?? 3) - (HOSTILITY_ORDER[b.hostility] ?? 3));
+    return list;
+  }, [filteredMobs, sortBy]);
+
   return (
     <main id="main" className="page">
       <section className="panel">
@@ -22,82 +35,50 @@ function OverworldPage({ favoriteIds, onToggleFavorite }) {
           Click the star to favorite a mob ⭐
         </p>
 
-        <form className="controls" onSubmit={(event) => event.preventDefault()}>
-          <label className="control" htmlFor="overworld-search">
-            <span className="control-label">Search mobs</span>
-            <input
-              id="overworld-search"
-              name="q"
-              type="search"
-              placeholder="Zombie, Bee, Wolf..."
-              className="search-input"
-              value={searchQuery}
-              onChange={(event) => setSearchQuery(event.target.value)}
-            />
-          </label>
+        <FilterControls
+          search={searchQuery}
+          setSearch={setSearchQuery}
+          hostility={hostility}
+          setHostility={setHostility}
+          searchId="overworld-search"
+          selectId="overworld-type"
+          searchPlaceholder="Zombie, Bee, Wolf..."
+        />
 
-          <div className="control-row">
-            <label className="control" htmlFor="overworld-type">
-              <span className="control-label">Hostility</span>
-              <select
-                id="overworld-type"
-                name="type"
-                className="select"
-                value={hostility}
-                onChange={(event) => setHostility(event.target.value)}
-              >
-                <option value="all">All</option>
-                <option value="hostile">Hostile</option>
-                <option value="neutral">Neutral</option>
-                <option value="passive">Passive</option>
-              </select>
-            </label>
-          </div>
-        </form>
+        <div className="control-row" style={{ marginTop: "1rem" }}>
+          <label className="control" htmlFor="overworld-sort">
+            <span className="control-label">Sort by</span>
+            <select
+              id="overworld-sort"
+              className="select"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+            >
+              <option value="name-asc">Name (A–Z)</option>
+              <option value="name-desc">Name (Z–A)</option>
+              <option value="hostility">Hostility</option>
+            </select>
+          </label>
+        </div>
       </section>
 
       <section className="panel">
+        <div className="results-bar">
+          <h3 className="results-title">Mob List</h3>
+        </div>
+
         <div className="grid" role="list">
-          {filteredMobs.length === 0 ? (
+          {sortedMobs.length === 0 ? (
             <p className="muted small">No Overworld mobs match that filter.</p>
           ) : (
-            filteredMobs.map((mob) => {
-              const isFav = favoriteIds.includes(mob.id);
-              return (
-                <article className="card" role="listitem" key={mob.id}>
-                  <div className="card-top">
-                    <a className="card-link" href="#" onClick={(e) => e.preventDefault()}>
-                      <img className="mob-photo" src={mob.image} alt={`${mob.name} mob`} />
-                      <div className="card-head">
-                        <h4 className="card-title">{mob.name}</h4>
-                        <div className="tags">
-                          <span className={`tag ${mob.hostility}`}>
-                            {mob.hostility[0].toUpperCase() + mob.hostility.slice(1)}
-                          </span>
-                          <span className="tag overworld">Overworld</span>
-                          {mob.biomes.map((b) => (
-                            <span className="tag" key={b}>{b}</span>
-                          ))}
-                        </div>
-                      </div>
-                    </a>
-
-                    <button
-                      className={`fav ${isFav ? "is-favorite" : ""}`}
-                      type="button"
-                      aria-label={`Favorite ${mob.name}`}
-                      onClick={() => onToggleFavorite(mob.id)}
-                    >
-                      {isFav ? "★" : "☆"}
-                    </button>
-                  </div>
-
-                  <div className="card-body">
-                    <p className="small"><strong>Goal:</strong> {mob.goal}</p>
-                  </div>
-                </article>
-              );
-            })
+            sortedMobs.map((mob) => (
+              <MobCard
+                key={mob.id}
+                mob={mob}
+                isFavorite={favoriteIds.includes(mob.id)}
+                onToggleFavorite={onToggleFavorite}
+              />
+            ))
           )}
         </div>
       </section>
