@@ -8,6 +8,7 @@ import OverworldPage from './pages/OverworldPage'
 import NetherPage from './pages/NetherPage'
 import EndPage from './pages/EndPage'
 import FavoritesPage from './pages/FavoritesPage'
+import MobDetailsPage from './pages/MobDetailsPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
@@ -58,6 +59,15 @@ function App() {
           path="/favorites"
           element={
             <FavoritesPage
+              favoriteIds={favoriteIds}
+              onToggleFavorite={toggleFavorite}
+            />
+          }
+        />
+        <Route
+          path="/mob/:mobId"
+          element={
+            <MobDetailsPage
               favoriteIds={favoriteIds}
               onToggleFavorite={toggleFavorite}
             />

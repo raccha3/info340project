@@ -7,6 +7,11 @@ export const overworldMobs = [
     biomes: ["Plains", "Forest"],
     goal: "Survive a night + defeat a hostile mob.",
     image: "/assets/mobs/zombie.png",
+    drops: [
+      { item: "Rotten Flesh", rate: "100%" },
+      { item: "Iron Ingot", rate: "rare" },
+      { item: "Carrot", rate: "rare" },
+    ],
   },
   {
     id: 2,
@@ -16,6 +21,11 @@ export const overworldMobs = [
     biomes: ["Plains", "Taiga"],
     goal: "Collect bones + arrows for tools and taming.",
     image: "/assets/mobs/skeleton.jpg",
+    drops: [
+      { item: "Bones", rate: "100%" },
+      { item: "Arrows", rate: "100%" },
+      { item: "Skeleton Head", rate: "very rare" },
+    ],
   },
   {
     id: 3,
@@ -25,6 +35,10 @@ export const overworldMobs = [
     biomes: ["Forest", "Plains"],
     goal: "Defeat safely (shield!) to work toward gunpowder.",
     image: "/assets/mobs/creeper.png",
+    drops: [
+      { item: "Gunpowder", rate: "100%" },
+      { item: "Music Disc", rate: "rare" },
+    ],
   },
   {
     id: 4,
@@ -34,6 +48,10 @@ export const overworldMobs = [
     biomes: ["Forest", "Swamp"],
     goal: "Collect string for fishing rod / bow.",
     image: "/assets/mobs/spider.png",
+    drops: [
+      { item: "String", rate: "100%" },
+      { item: "Spider Eye", rate: "100%" },
+    ],
   },
   {
     id: 5,
@@ -43,6 +61,9 @@ export const overworldMobs = [
     biomes: ["Swamp"],
     goal: "Get slimeballs for leads or sticky pistons.",
     image: "/assets/mobs/slime.png",
+    drops: [
+      { item: "Slimeball", rate: "100%" },
+    ],
   },
   {
     id: 6,
@@ -52,6 +73,12 @@ export const overworldMobs = [
     biomes: ["Swamp"],
     goal: "Collect potion-related drops (later brewing).",
     image: "/assets/mobs/witch.png",
+    drops: [
+      { item: "Potion Bottle", rate: "100%" },
+      { item: "Glowstone Dust", rate: "common" },
+      { item: "Redstone", rate: "common" },
+      { item: "Sticks", rate: "common" },
+    ],
   },
   {
     id: 7,
@@ -61,6 +88,10 @@ export const overworldMobs = [
     biomes: ["Desert"],
     goal: "Defeat and avoid hunger effect.",
     image: "/assets/mobs/husk.png",
+    drops: [
+      { item: "Rotten Flesh", rate: "100%" },
+      { item: "Iron Ingot", rate: "rare" },
+    ],
   },
   {
     id: 8,
@@ -70,6 +101,11 @@ export const overworldMobs = [
     biomes: ["Plains", "Desert"],
     goal: "Breed using carrots for easy food.",
     image: "/assets/mobs/rabbit.png",
+    drops: [
+      { item: "Raw Rabbit", rate: "100%" },
+      { item: "Rabbit Hide", rate: "100%" },
+      { item: "Rabbit Foot", rate: "rare" },
+    ],
   },
   {
     id: 9,
@@ -79,6 +115,10 @@ export const overworldMobs = [
     biomes: ["Plains", "Forest"],
     goal: "Harvest honey safely with a campfire.",
     image: "/assets/mobs/bee.png",
+    drops: [
+      { item: "Honeycomb", rate: "100%" },
+      { item: "Honey Bottle", rate: "100%" },
+    ],
   },
   {
     id: 10,
@@ -88,6 +128,10 @@ export const overworldMobs = [
     biomes: ["Forest", "Taiga"],
     goal: "Tame with bones for a companion.",
     image: "/assets/mobs/wolf.png",
+    drops: [
+      { item: "Raw Mutton", rate: "common" },
+      { item: "Wolf Armor", rate: "dropped when tamed" },
+    ],
   },
   {
     id: 11,
@@ -97,6 +141,10 @@ export const overworldMobs = [
     biomes: ["Plains"],
     goal: "Tame and ride to explore faster.",
     image: "/assets/mobs/horse.png",
+    drops: [
+      { item: "Leather", rate: "100%" },
+      { item: "Saddle", rate: "very rare" },
+    ],
   },
   {
     id: 12,
@@ -106,5 +154,9 @@ export const overworldMobs = [
     biomes: ["Taiga"],
     goal: "Find sweet berries and spot a fox at night.",
     image: "/assets/mobs/fox.png",
+    drops: [
+      { item: "Sweet Berries", rate: "if eaten before defeat" },
+      { item: "Emerald", rate: "rare" },
+    ],
   },
 ];

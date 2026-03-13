@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom'
+
 function MobCard({ mob, isFavorite, onToggleFavorite }) {
   return (
     <article className="card" role="listitem">
       <div className="card-top">
-        <a className="card-link" href="#" onClick={(e) => e.preventDefault()}>
+        <Link className="card-link" to={`/mob/${mob.id}`}>
           <img className="mob-photo" src={mob.image} alt={`${mob.name} mob`} />
           <div className="card-head">
             <h4 className="card-title">{mob.name}</h4>
@@ -15,7 +17,7 @@ function MobCard({ mob, isFavorite, onToggleFavorite }) {
               ))}
             </div>
           </div>
-        </a>
+        </Link>
 
         <button
           className="fav"

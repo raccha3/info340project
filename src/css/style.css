@@ -157,12 +157,29 @@ img {
 
 .card:hover {
   transform: translateY(-3px);
+  cursor: pointer;
+}
+
+.card:hover .card-link::after {
+  opacity: 1;
 }
 
 .card-link {
   text-decoration: none;
   color: inherit;
   display: block;
+  position: relative;
+}
+
+.card-link::after {
+  content: '→';
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .mob-photo {
@@ -316,4 +333,241 @@ img {
   background: #f4c430;
   border-color: #c89f11;
   color: #2a2206;
+}
+
+/* =========================
+   Mob Details Page
+========================= */
+.mob-details {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.btn-back {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.btn-back:hover {
+  opacity: 0.9;
+}
+
+.details-container {
+  background: white;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--border);
+  overflow: hidden;
+}
+
+.details-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .details-header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.details-image-section {
+  position: relative;
+  text-align: center;
+}
+
+.details-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  background: #f4f4f4;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+.fav-large {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: all 0.2s ease;
+}
+
+.fav-large:hover {
+  transform: scale(1.1);
+  background: #fff9e6;
+  border-color: var(--accent);
+}
+
+.details-info h1 {
+  margin: 0 0 1rem;
+}
+
+.details-title {
+  font-size: 2.2rem;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+
+.details-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.details-tags .tag {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.details-section {
+  margin-bottom: 1.5rem;
+}
+
+.details-section h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+}
+
+.details-section p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.details-body {
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.details-body article {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.details-body article:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.details-body h2 {
+  font-size: 1.2rem;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+
+.details-body p {
+  margin: 0 0 0.5rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.biome-list,
+.drops-list {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.biome-list li,
+.drops-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.drops-list li strong {
+  color: var(--ink);
+}
+
+.related-mobs {
+  padding: 2rem;
+  background: #f9f9f9;
+  border-top: 1px solid var(--border);
+}
+
+.related-mobs h2 {
+  margin: 0 0 1.5rem;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.related-card {
+  background: white;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+
+.related-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  background: #f4f4f4;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.related-card p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.not-found {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.not-found h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+
+.not-found p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
 }

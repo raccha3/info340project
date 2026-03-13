@@ -7,6 +7,10 @@ export const netherMobs = [
 		biomes: ["Nether Fortress"],
 		goal: "Collect blaze rods for brewing + End progression.",
 		image: "/assets/mobs/blaze.png",
+		drops: [
+			{ item: "Blaze Rod", rate: "100%" },
+			{ item: "Blaze Powder", rate: "drops from Blaze Rod" },
+		],
 	},
 	{
 		id: 102,
@@ -16,6 +20,10 @@ export const netherMobs = [
 		biomes: ["Nether Wastes"],
 		goal: "Deflect a fireball and collect ghast tears.",
 		image: "/assets/mobs/ghast.png",
+		drops: [
+			{ item: "Ghast Tear", rate: "100%" },
+			{ item: "Gunpowder", rate: "100%" },
+		],
 	},
 	{
 		id: 103,
@@ -25,6 +33,11 @@ export const netherMobs = [
 		biomes: ["Nether Fortress"],
 		goal: "Collect skulls to summon the Wither.",
 		image: "/assets/mobs/wither-skeleton.png",
+		drops: [
+			{ item: "Bones", rate: "100%" },
+			{ item: "Coal", rate: "100%" },
+			{ item: "Wither Skeleton Skull", rate: "2.5%" },
+		],
 	},
 	{
 		id: 104,
@@ -34,6 +47,10 @@ export const netherMobs = [
 		biomes: ["Crimson Forest"],
 		goal: "Trade gold ingots for rare items.",
 		image: "/assets/mobs/piglin.png",
+		drops: [
+			{ item: "Gold Nugget", rate: "100%" },
+			{ item: "Leather", rate: "100%" },
+		],
 	},
 	{
 		id: 105,
@@ -43,6 +60,10 @@ export const netherMobs = [
 		biomes: ["Crimson Forest"],
 		goal: "Farm for food in the Nether.",
 		image: "/assets/mobs/hoglin.png",
+		drops: [
+			{ item: "Raw Porkchop", rate: "100%" },
+			{ item: "Leather", rate: "100%" },
+		],
 	},
 	{
 		id: 106,
@@ -52,6 +73,10 @@ export const netherMobs = [
 		biomes: ["Lava Lakes"],
 		goal: "Ride across lava safely.",
 		image: "/assets/mobs/strider.gif",
+		drops: [
+			{ item: "String", rate: "100%" },
+			{ item: "Saddle", rate: "very rare" },
+		],
 	},
 	{
 		id: 107,
@@ -61,6 +86,9 @@ export const netherMobs = [
 		biomes: ["Basalt Deltas"],
 		goal: "Collect magma cream for potions.",
 		image: "/assets/mobs/magma-cube.png",
+		drops: [
+			{ item: "Magma Cream", rate: "100%" },
+		],
 	},
 	{
 		id: 108,
@@ -70,5 +98,9 @@ export const netherMobs = [
 		biomes: ["Nether Wastes"],
 		goal: "Avoid angering large groups.",
 		image: "/assets/mobs/zombified-piglin.png",
+		drops: [
+			{ item: "Gold Nugget", rate: "100%" },
+			{ item: "Rotten Flesh", rate: "100%" },
+		],
 	},
 ];
