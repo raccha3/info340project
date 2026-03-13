@@ -1,6 +1,6 @@
 // works
 import { useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import './css/style.css'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
@@ -22,28 +22,49 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
           path="/overworld"
-          element={<OverworldPage favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} />}
+          element={
+            <OverworldPage
+              favoriteIds={favoriteIds}
+              onToggleFavorite={toggleFavorite}
+            />
+          }
         />
         <Route
           path="/nether"
-          element={<NetherPage favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} />}
+          element={
+            <NetherPage
+              favoriteIds={favoriteIds}
+              onToggleFavorite={toggleFavorite}
+            />
+          }
         />
         <Route
           path="/end"
-          element={<EndPage favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} />}
+          element={
+            <EndPage
+              favoriteIds={favoriteIds}
+              onToggleFavorite={toggleFavorite}
+            />
+          }
         />
         <Route
           path="/favorites"
-          element={<FavoritesPage favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} />}
+          element={
+            <FavoritesPage
+              favoriteIds={favoriteIds}
+              onToggleFavorite={toggleFavorite}
+            />
+          }
         />
+        <Route path="*" element={<p>Page not found.</p>} />
       </Routes>
-    </BrowserRouter>
+    </>
   )
 }
 

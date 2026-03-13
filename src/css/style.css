@@ -115,6 +115,9 @@ img {
   background: rgba(0,0,0,0.3);
 }
 
+.control-row-spaced {
+  margin-top: 1rem;
+}
 
 .grid {
   display: grid;
