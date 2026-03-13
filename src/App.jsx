@@ -8,6 +8,7 @@ import OverworldPage from './pages/OverworldPage'
 import NetherPage from './pages/NetherPage'
 import EndPage from './pages/EndPage'
 import FavoritesPage from './pages/FavoritesPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
   const [favoriteIds, setFavoriteIds] = useState([])
@@ -62,8 +63,7 @@ function App() {
             />
           }
         />
-        <Route path="*" element={<p>Page not found.</p>} />
-      </Routes>
+      <Route path="*" element={<NotFoundPage />} />      </Routes>
     </>
   )
 }
