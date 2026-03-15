@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
-import FilterControls from './FilterControls'
-import MobCard from './MobCard'
+import MobFiltersSection from './MobFiltersSection'
+import MobGrid from './MobGrid'
 
 const HOSTILITY_ORDER = {
   hostile: 0,
@@ -57,20 +57,14 @@ function DimensionPage({
     return list
   }, [filteredMobs, sortBy])
 
-  const mobCards = sortedMobs.map((mob) => (
-    <MobCard
-      key={mob.id}
-      mob={mob}
-      isFavorite={favoriteIds.includes(mob.id)}
+  const resultsContent = (
+    <MobGrid
+      mobs={sortedMobs}
+      favoriteIds={favoriteIds}
       onToggleFavorite={onToggleFavorite}
+      emptyMessage={emptyMessage}
     />
-  ))
-
-  let resultsContent = <div className="grid" role="list">{mobCards}</div>
-
-  if (sortedMobs.length === 0) {
-    resultsContent = <p className="muted small">{emptyMessage}</p>
-  }
+  )
 
   return (
     <main id="main" className="page">
@@ -78,31 +72,18 @@ function DimensionPage({
         <h2>{title}</h2>
         <p className="muted small">{description}</p>
 
-        <FilterControls
-          search={query}
-          setSearch={setQuery}
+        <MobFiltersSection
+          query={query}
+          setQuery={setQuery}
           hostility={hostility}
           setHostility={setHostility}
+          sortBy={sortBy}
+          setSortBy={setSortBy}
           searchId={searchId}
           selectId={selectId}
+          sortId={sortId}
           searchPlaceholder={searchPlaceholder}
         />
-
-        <div className="control-row control-row-spaced">
-          <label className="control" htmlFor={sortId}>
-            <span className="control-label">Sort by</span>
-            <select
-              id={sortId}
-              className="select"
-              value={sortBy}
-              onChange={(event) => setSortBy(event.target.value)}
-            >
-              <option value="name-asc">Name (A–Z)</option>
-              <option value="name-desc">Name (Z–A)</option>
-              <option value="hostility">Hostility</option>
-            </select>
-          </label>
-        </div>
       </section>
 
       <section className="panel">

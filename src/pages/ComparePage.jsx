@@ -1,0 +1,201 @@
+import { useState } from 'react'
+import { overworldMobs } from '../data/overworldMobs'
+import { netherMobs } from '../data/nether-mobs'
+import { endMobs } from '../data/end-mobs'
+
+function ComparePage() {
+  const allMobs = [...overworldMobs, ...netherMobs, ...endMobs]
+  
+  const [mob1Id, setMob1Id] = useState(null)
+  const [mob2Id, setMob2Id] = useState(null)
+
+  const mob1 = mob1Id ? allMobs.find((m) => m.id === parseInt(mob1Id)) : null
+  const mob2 = mob2Id ? allMobs.find((m) => m.id === parseInt(mob2Id)) : null
+
+  // Find common biomes
+  const commonBiomes = mob1 && mob2 
+    ? mob1.biomes.filter((b) => mob2.biomes.includes(b))
+    : []
+
+  // Find common drops
+  const commonDrops = mob1 && mob2
+    ? mob1.drops.filter((drop1) =>
+        mob2.drops.some((drop2) => drop2.item === drop1.item)
+      )
+    : []
+
+  return (
+    <main className="compare-page">
+      <section className="compare-panel">
+        <h1>Mob Comparison</h1>
+        <p className="muted small">Select two mobs to compare their stats and drops.</p>
+
+        <div className="compare-selectors">
+          <div className="selector">
+            <label htmlFor="mob1-select">First Mob:</label>
+            <select
+              id="mob1-select"
+              className="select"
+              value={mob1Id || ''}
+              onChange={(e) => setMob1Id(e.target.value)}
+            >
+              <option value="">-- Select a mob --</option>
+              {allMobs.map((mob) => (
+                <option key={mob.id} value={mob.id}>
+                  {mob.name} ({mob.world})
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="vs-text">vs</div>
+
+          <div className="selector">
+            <label htmlFor="mob2-select">Second Mob:</label>
+            <select
+              id="mob2-select"
+              className="select"
+              value={mob2Id || ''}
+              onChange={(e) => setMob2Id(e.target.value)}
+            >
+              <option value="">-- Select a mob --</option>
+              {allMobs.map((mob) => (
+                <option key={mob.id} value={mob.id}>
+                  {mob.name} ({mob.world})
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </section>
+
+      {mob1 && mob2 && (
+        <>
+          <section className="comparison-grid">
+            <article className="comparison-card">
+              <div className="comparison-header">
+                <img 
+                  src={mob1.image} 
+                  alt={`${mob1.name} mob`}
+                  className="comparison-image"
+                />
+                <h2>{mob1.name}</h2>
+                <div className="comparison-tags">
+                  <span className={`tag ${mob1.hostility}`}>
+                    {mob1.hostility[0].toUpperCase() + mob1.hostility.slice(1)}
+                  </span>
+                  <span className={`tag ${mob1.world.toLowerCase()}`}>
+                    {mob1.world}
+                  </span>
+                </div>
+              </div>
+
+              <div className="comparison-content">
+                <div className="comparison-section">
+                  <h3>Biomes</h3>
+                  <ul>
+                    {mob1.biomes.map((biome) => (
+                      <li key={biome}>{biome}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="comparison-section">
+                  <h3>Drops</h3>
+                  <ul>
+                    {mob1.drops.map((drop, idx) => (
+                      <li key={idx}>
+                        <strong>{drop.item}</strong> — {drop.rate}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="comparison-section">
+                  <h3>Strategic Goal</h3>
+                  <p>{mob1.goal}</p>
+                </div>
+              </div>
+            </article>
+
+            <article className="comparison-card">
+              <div className="comparison-header">
+                <img 
+                  src={mob2.image} 
+                  alt={`${mob2.name} mob`}
+                  className="comparison-image"
+                />
+                <h2>{mob2.name}</h2>
+                <div className="comparison-tags">
+                  <span className={`tag ${mob2.hostility}`}>
+                    {mob2.hostility[0].toUpperCase() + mob2.hostility.slice(1)}
+                  </span>
+                  <span className={`tag ${mob2.world.toLowerCase()}`}>
+                    {mob2.world}
+                  </span>
+                </div>
+              </div>
+
+              <div className="comparison-content">
+                <div className="comparison-section">
+                  <h3>Biomes</h3>
+                  <ul>
+                    {mob2.biomes.map((biome) => (
+                      <li key={biome}>{biome}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="comparison-section">
+                  <h3>Drops</h3>
+                  <ul>
+                    {mob2.drops.map((drop, idx) => (
+                      <li key={idx}>
+                        <strong>{drop.item}</strong> — {drop.rate}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="comparison-section">
+                  <h3>Strategic Goal</h3>
+                  <p>{mob2.goal}</p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section className="similarities-panel">
+            <h2>Similarities</h2>
+            {mob1.hostility === mob2.hostility && (
+              <p>
+                <strong>✓ Same Hostility:</strong> Both are {mob1.hostility}
+              </p>
+            )}
+            {commonBiomes.length > 0 && (
+              <p>
+                <strong>✓ Shared Biomes:</strong> {commonBiomes.join(', ')}
+              </p>
+            )}
+            {commonDrops.length > 0 && (
+              <p>
+                <strong>✓ Common Drops:</strong> {commonDrops.map((d) => d.item).join(', ')}
+              </p>
+            )}
+            {mob1.hostility !== mob2.hostility && commonBiomes.length === 0 && commonDrops.length === 0 && (
+              <p className="muted">These mobs have no obvious similarities.</p>
+            )}
+          </section>
+        </>
+      )}
+
+      {!(mob1 && mob2) && (
+        <section className="compare-placeholder">
+          <p className="muted">Select two mobs above to see a detailed comparison.</p>
+        </section>
+      )}
+    </main>
+  )
+}
+
+export default ComparePage

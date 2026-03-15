@@ -9,6 +9,7 @@ import NetherPage from './pages/NetherPage'
 import EndPage from './pages/EndPage'
 import FavoritesPage from './pages/FavoritesPage'
 import MobDetailsPage from './pages/MobDetailsPage'
+import ComparePage from './pages/ComparePage'
 import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
@@ -72,6 +73,10 @@ function App() {
               onToggleFavorite={toggleFavorite}
             />
           }
+        />
+        <Route
+          path="/compare"
+          element={<ComparePage />}
         />
       <Route path="*" element={<NotFoundPage />} />      </Routes>
     </>

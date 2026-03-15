@@ -20,6 +20,7 @@ function Header() {
 				<NavLink to="/nether" className={({ isActive }) => (isActive ? "active" : "")}>Nether</NavLink>
 				<NavLink to="/end" className={({ isActive }) => (isActive ? "active" : "")}>End</NavLink>
 				<NavLink to="/favorites" className={({ isActive }) => (isActive ? "active" : "")}>Favorites</NavLink>
+				<NavLink to="/compare" className={({ isActive }) => (isActive ? "active" : "")}>Compare</NavLink>
 				</nav>
 			</div>
 		</header>
