@@ -293,3 +293,8 @@ img {
   display: block;
   height: 100%;
 }
+
+.related-link {
+  text-decoration: none;
+  color: inherit;
+}
