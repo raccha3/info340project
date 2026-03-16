@@ -7,14 +7,14 @@ function MobGrid({ mobs, favoriteIds, onToggleFavorite, emptyMessage }) {
 
   return (
     <div className="grid" role="list">
-      {mobs.map((mob) => (
-        <MobCard
-          key={mob.id}
-          mob={mob}
-          isFavorite={favoriteIds.includes(mob.id)}
-          onToggleFavorite={onToggleFavorite}
-        />
-      ))}
+        {mobs.map((mob) => (
+          <MobCard
+            key={mob.id}
+            mob={mob}
+            isFavorite={favoriteIds.includes(mob.id)}
+            onToggleFavorite={onToggleFavorite}
+          />
+        ))}
     </div>
   )
 }
