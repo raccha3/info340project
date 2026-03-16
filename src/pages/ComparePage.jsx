@@ -26,7 +26,7 @@ function ComparePage() {
 
   return (
     <main className="compare-page">
-      <section className="compare-panel">
+      <section className="panel compare-panel">
         <h1>Mob Comparison</h1>
         <p className="muted small">Select two mobs to compare their stats and drops.</p>
 
@@ -72,7 +72,7 @@ function ComparePage() {
       {mob1 && mob2 && (
         <>
           <section className="comparison-grid">
-            <article className="comparison-card">
+            <article className="card comparison-card">
               <div className="comparison-header">
                 <img 
                   src={mob1.image} 
@@ -118,7 +118,7 @@ function ComparePage() {
               </div>
             </article>
 
-            <article className="comparison-card">
+            <article className="card comparison-card">
               <div className="comparison-header">
                 <img 
                   src={mob2.image} 
@@ -165,7 +165,7 @@ function ComparePage() {
             </article>
           </section>
 
-          <section className="similarities-panel">
+          <section className="panel similarities-panel">
             <h2>Similarities</h2>
             {mob1.hostility === mob2.hostility && (
               <p>
@@ -190,7 +190,7 @@ function ComparePage() {
       )}
 
       {!(mob1 && mob2) && (
-        <section className="compare-placeholder">
+        <section className="panel compare-placeholder">
           <p className="muted">Select two mobs above to see a detailed comparison.</p>
         </section>
       )}
