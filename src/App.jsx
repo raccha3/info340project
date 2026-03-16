@@ -1,8 +1,8 @@
-// works
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './css/style.css'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import OverworldPage from './pages/OverworldPage'
 import NetherPage from './pages/NetherPage'
@@ -26,7 +26,12 @@ function App() {
 
   return (
     <>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+
       <Header />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -74,11 +79,11 @@ function App() {
             />
           }
         />
-        <Route
-          path="/compare"
-          element={<ComparePage />}
-        />
-      <Route path="*" element={<NotFoundPage />} />      </Routes>
+        <Route path="/compare" element={<ComparePage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+
+      <Footer />
     </>
   )
 }
