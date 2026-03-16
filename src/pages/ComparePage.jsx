@@ -210,9 +210,7 @@ function ComparePage() {
               )}
           </section>
         </>
-      )}
-
-      {!(mob1 && mob2) && (
+      ) : (
         <section className="panel compare-placeholder">
           <p className="muted">Select two mobs above to see a detailed comparison.</p>
         </section>
