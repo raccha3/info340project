@@ -7,18 +7,18 @@ function MobDetailsPage({ favoriteIds, onToggleFavorite }) {
   const { mobId } = useParams()
   const navigate = useNavigate()
 
-  // Combine all mobs to search across all dimensions
   const allMobs = [...overworldMobs, ...netherMobs, ...endMobs]
-  const mob = allMobs.find((m) => m.id === parseInt(mobId))
+  const mob = allMobs.find((m) => m.id === parseInt(mobId, 10))
   const isFavorite = favoriteIds.includes(mob?.id)
 
   if (!mob) {
     return (
-      <main className="not-found">
+      <main id="main" className="not-found">
         <h1>Mob Not Found</h1>
         <p>Sorry, we couldn't find a mob with ID {mobId}.</p>
-        <button 
+        <button
           className="btn-back"
+          type="button"
           onClick={() => navigate(-1)}
         >
           Go Back
@@ -27,15 +27,54 @@ function MobDetailsPage({ favoriteIds, onToggleFavorite }) {
     )
   }
 
-  // Find related mobs from the same world
   const relatedMobs = allMobs.filter(
     (m) => m.world === mob.world && m.id !== mob.id
   )
 
+  const biomeItems = mob.biomes.map((biome) => (
+    <li key={biome}>{biome}</li>
+  ))
+
+  const dropItems =
+    mob.drops && mob.drops.length > 0
+      ? mob.drops.map((drop) => (
+          <li key={`${drop.item}-${drop.rate}`}>
+            <strong>{drop.item}</strong> — {drop.rate}
+          </li>
+        ))
+      : null
+
+  const relatedMobCards = relatedMobs.slice(0, 4).map((relatedMob) => (
+    <Link
+      key={relatedMob.id}
+      to={`/mob/${relatedMob.id}`}
+      className="related-card related-link"
+    >
+      <img
+        src={relatedMob.image}
+        alt={`${relatedMob.name} mob`}
+      />
+      <p>{relatedMob.name}</p>
+    </Link>
+  ))
+
+  let hostilityDescription = ''
+  if (mob.hostility === 'hostile') {
+    hostilityDescription =
+      'This mob will attack you on sight. Prepare weapons and armor!'
+  } else if (mob.hostility === 'neutral') {
+    hostilityDescription =
+      'This mob is peaceful unless provoked. Attack it and it will fight back.'
+  } else if (mob.hostility === 'passive') {
+    hostilityDescription =
+      'This mob is harmless and will not attack you.'
+  }
+
   return (
-    <main className="mob-details">
-      <button 
+    <main id="main" className="mob-details">
+      <button
         className="btn-back"
+        type="button"
         onClick={() => navigate(-1)}
         aria-label="Go back to previous page"
       >
@@ -45,8 +84,8 @@ function MobDetailsPage({ favoriteIds, onToggleFavorite }) {
       <article className="details-container">
         <header className="details-header">
           <div className="details-image-section">
-            <img 
-              src={mob.image} 
+            <img
+              src={mob.image}
               alt={`${mob.name} mob portrait`}
               className="details-image"
             />
@@ -62,7 +101,7 @@ function MobDetailsPage({ favoriteIds, onToggleFavorite }) {
 
           <div className="details-info">
             <h1 className="details-title">{mob.name}</h1>
-            
+
             <section className="details-tags">
               <span className={`tag ${mob.hostility}`}>
                 {mob.hostility[0].toUpperCase() + mob.hostility.slice(1)}
@@ -82,38 +121,22 @@ function MobDetailsPage({ favoriteIds, onToggleFavorite }) {
         <section className="details-body">
           <article>
             <h2>Biomes Found In</h2>
-            <ul className="biome-list">
-              {mob.biomes.map((biome) => (
-                <li key={biome}>{biome}</li>
-              ))}
-            </ul>
+            <ul className="biome-list">{biomeItems}</ul>
           </article>
 
           <article>
             <h2>Mob Type</h2>
             <p>
-              <strong>Hostility Level:</strong> {mob.hostility[0].toUpperCase() + mob.hostility.slice(1)}
+              <strong>Hostility Level:</strong>{' '}
+              {mob.hostility[0].toUpperCase() + mob.hostility.slice(1)}
             </p>
-            <p>
-              {mob.hostility === 'hostile' && 
-                'This mob will attack you on sight. Prepare weapons and armor!'}
-              {mob.hostility === 'neutral' && 
-                'This mob is peaceful unless provoked. Attack it and it will fight back.'}
-              {mob.hostility === 'passive' && 
-                'This mob is harmless and will not attack you.'}
-            </p>
+            <p>{hostilityDescription}</p>
           </article>
 
-          {mob.drops && mob.drops.length > 0 && (
+          {dropItems && (
             <article>
               <h2>Drops</h2>
-              <ul className="drops-list">
-                {mob.drops.map((drop, idx) => (
-                  <li key={idx}>
-                    <strong>{drop.item}</strong> — {drop.rate}
-                  </li>
-                ))}
-              </ul>
+              <ul className="drops-list">{dropItems}</ul>
             </article>
           )}
         </section>
@@ -121,22 +144,7 @@ function MobDetailsPage({ favoriteIds, onToggleFavorite }) {
         {relatedMobs.length > 0 && (
           <section className="related-mobs">
             <h2>Other {mob.world} Mobs</h2>
-            <div className="related-grid">
-              {relatedMobs.slice(0, 4).map((relatedMob) => (
-                <Link 
-                  key={relatedMob.id}
-                  to={`/mob/${relatedMob.id}`}
-                  className="related-card"
-                  style={{ textDecoration: 'none', color: 'inherit' }}
-                >
-                  <img 
-                    src={relatedMob.image} 
-                    alt={`${relatedMob.name} mob`}
-                  />
-                  <p>{relatedMob.name}</p>
-                </Link>
-              ))}
-            </div>
+            <div className="related-grid">{relatedMobCards}</div>
           </section>
         )}
       </article>

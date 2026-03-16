@@ -512,3 +512,8 @@ img {
   background: #383d50;
   color: white;
 }
+
+.related-link {
+  text-decoration: none;
+  color: inherit;
+}

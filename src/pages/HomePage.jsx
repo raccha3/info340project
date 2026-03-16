@@ -1,56 +1,61 @@
-import WorldCard from "../components/WorldCard";
+import WorldCard from '../components/WorldCard'
 
 const worlds = [
   {
-    id: "overworld",
-    title: "Overworld",
-    description: "Plains, Forest, Desert",
-    image: "/assets/plains.jpg",
-    imageAlt: "Overworld preview",
-    to: "/overworld",
+    id: 'overworld',
+    title: 'Overworld',
+    description: 'Plains, Forest, Desert',
+    image: '/assets/plains.jpg',
+    imageAlt: 'Overworld preview',
+    to: '/overworld',
   },
   {
-    id: "nether",
-    title: "Nether",
-    description: "Fortress, Wastes, Crimson Forest",
-    image: "/assets/nether.jpg",
-    imageAlt: "Nether preview",
-    to: "/nether",
+    id: 'nether',
+    title: 'Nether',
+    description: 'Fortress, Wastes, Crimson Forest',
+    image: '/assets/nether.jpg',
+    imageAlt: 'Nether preview',
+    to: '/nether',
   },
   {
-    id: "end",
-    title: "End",
-    description: "Main Island, End City",
-    image: "/assets/end.jpg",
-    imageAlt: "End preview",
-    to: "/end",
+    id: 'end',
+    title: 'End',
+    description: 'Main Island, End City',
+    image: '/assets/end.jpg',
+    imageAlt: 'End preview',
+    to: '/end',
   },
-];
+]
 
 function HomePage() {
+  const worldCards = worlds.map((world) => (
+    <WorldCard
+      key={world.id}
+      title={world.title}
+      description={world.description}
+      image={world.image}
+      imageAlt={world.imageAlt}
+      to={world.to}
+    />
+  ))
+
   return (
     <main id="main" className="page">
       <section className="panel">
         <h2>Choose a World</h2>
-        <p className="muted small">Start with a world, then browse biomes and mobs you can favorite.</p>
+        <p className="muted small">
+          Start with a world, then browse biomes, explore mobs, and save your
+          favorites.
+        </p>
       </section>
 
       <section className="panel">
         <div className="grid" role="list">
-          {worlds.map((world) => (
-            <WorldCard
-              key={world.id}
-              title={world.title}
-              description={world.description}
-              image={world.image}
-              imageAlt={world.imageAlt}
-              to={world.to}
-            />
-          ))}
+          {worldCards}
         </div>
       </section>
     </main>
-  );
+  )
 }
 
-export default HomePage;
+export default HomePage

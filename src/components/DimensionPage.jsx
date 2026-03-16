@@ -100,21 +100,6 @@ function DimensionPage({
             </label>
         </div>
 
-        <div className="control-row control-row-spaced">
-          <label className="control" htmlFor={sortId}>
-            <span className="control-label">Sort by</span>
-            <select
-              id={sortId}
-              className="select"
-              value={sortBy}
-              onChange={(event) => setSortBy(event.target.value)}
-            >
-              <option value="name-asc">Name (A–Z)</option>
-              <option value="name-desc">Name (Z–A)</option>
-              <option value="hostility">Hostility</option>
-            </select>
-          </label>
-        </div>
       </section>
 
       <section className="panel">
